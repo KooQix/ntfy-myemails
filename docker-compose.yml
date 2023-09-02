@@ -1,0 +1,30 @@
+# Name = name of the folder
+services:
+  ntfy:
+    image: binwiederhier/ntfy
+    container_name: ntfy
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports:
+      - 3002:80
+    volumes:
+      - /var/cache/ntfy:/var/cache/ntfy
+      - ${PATH_CONFIG}:${PATH_CONFIG} # Configuration
+      - ${PATH_DB}:${PATH_DB} # User access and all
+    command: serve --cache-file /var/cache/ntfy/cache.db
+
+  emails:
+    container_name: ntfy_emails
+    build:
+      context: ./emails
+      dockerfile: Dockerfile
+    env_file:
+      - ./emails/src/.env
+    restart: unless-stopped
+    depends_on:
+      - ntfy
+    volumes:
+      - ${PATH_DB}:${PATH_DB} # User access and all
+    ports:
+      - 8000:8000
