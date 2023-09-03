@@ -148,7 +148,7 @@ EOF
 gen_error_content() {
 	cat << EOF
 {
-	"subject":"[$topic ERROR]",
+	"subject":"🔴 [$topic ERROR]",
 	"error_message":"$message"
 }
 EOF
