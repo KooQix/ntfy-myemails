@@ -16,7 +16,7 @@ fi
 # If one argument and is --help, print help
 if [ $# -eq 1 ] && [ "$1" == "--help" ]
 then
-	echo "Usage: ./publish.sh [options]"
+	echo "Usage: ./notify.sh [options]"
 	echo
 	echo "Options:"
 	echo "  Required:"
