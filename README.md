@@ -35,13 +35,13 @@ Modify the environment variables as needed, as well as the ports and volumes in 
 
 	sudo chmod +x notify.sh
 
- Usage: ./notify.sh [options]
-
-Options:
-  Required:
-    --message=<message> Message to publish
-
-  Optional:
-    --topic=<topic>     Topic to publish (default: value from .env)
-    --email=<0|1>       Whether to also send an email or not (default: 0)
-    --error=<0|1>       Whether it notifies an error or not (default: 0)
+	Usage: ./notify.sh [options]
+	
+	Options:
+	  Required:
+	    --message=<message> Message to publish
+	
+	  Optional:
+	    --topic=<topic>     Topic to publish (default: value from .env)
+	    --email=<0|1>       Whether to also send an email or not (default: 0)
+	    --error=<0|1>       Whether it notifies an error or not (default: 0)
