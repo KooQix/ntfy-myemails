@@ -1,6 +1,8 @@
 # Overview
 
-Notification using ntfy.sh and MyEmails
+Notification using ntfy.sh and MyEmails.
+
+MyEmails utilizes Gmail addresses and shares the same database as Ntfy for user management and access control.
 
 # Run
 
