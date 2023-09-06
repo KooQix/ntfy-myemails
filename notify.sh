@@ -16,7 +16,7 @@ fi
 # If one argument and is --help, print help
 if [ $# -eq 1 ] && [ "$1" == "--help" ]
 then
-	echo "Usage: ./publish.sh [options]"
+	echo "Usage: ./notify.sh [options]"
 	echo
 	echo "Options:"
 	echo "  Required:"
@@ -109,9 +109,12 @@ fi
 priority="default"
 
 # If error, set priority to urgent
+emoji=""
 if [ $error -eq 1 ]
 then
 	priority="urgent"
+	# If priority == urgent, add 🔴 before the message
+	emoji="🔴 "
 fi
 
 
@@ -120,7 +123,7 @@ fi
 
 
 # Publish command like: curl -u kooqix:mypass -d "Look ma, with auth" https://example.com/MyTopic
-curl -u $user:$password -H "Priority: $priority" -d "$message" $ntfy_url/$topic
+curl -u $user:$password -H "Priority: $priority" -d "$emoji$message" $ntfy_url/$topic
 
 
 #################### Send email ####################
@@ -148,7 +151,7 @@ EOF
 gen_error_content() {
 	cat << EOF
 {
-	"subject":"[$topic ERROR]",
+	"subject":"$emoji[$topic ERROR]",
 	"error_message":"$message"
 }
 EOF
