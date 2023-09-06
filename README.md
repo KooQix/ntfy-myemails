@@ -59,6 +59,6 @@ bcrypt.hashpw(b"your_password", bcrypt.gensalt()).decode()
 
 Set the new password (needs to be cast to bytes for bcrypt to check)
 
-1 - Connect to your SQlite database
+Connect to your SQlite database
 
-2 - UPDATE user SET pass=CAST(hashed_pass AS BLOB) WHERE user=username;
+	UPDATE user SET pass=CAST(hashed_pass AS BLOB) WHERE user=username;
